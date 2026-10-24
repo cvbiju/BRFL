@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BR Fiesta Lavandería | Laundromat in Pacoima, CA</title>
+<meta name="description" content="BR Fiesta Lavandería — self-service laundromat and wash & fold at 13736 Van Nuys Blvd, Pacoima, CA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azul: #1B3A8C;
+    --rosa: #E5397A;
+    --sol: #F6B81A;
+    --turquesa: #12A19E;
+    --naranja: #F26B21;
+    --bg: #FFFFFF;
+    --bg-alt: #EAF3FB;
+    --ink: #13204A;
+    --ink-soft: #46527A;
+    --line: #C9D6EA;
+    --card: #FFFFFF;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --azul: #7FA2FF;
+      --bg: #0E1630;
+      --bg-alt: #16214A;
+      --ink: #F2F5FF;
+      --ink-soft: #B6C0DE;
+      --line: #2C3A6B;
+      --card: #1A2652;
+      color-scheme: dark;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: "Figtree", system-ui, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    color: var(--ink);
+    background: var(--bg);
+  }
+  h1, h2, h3 { font-family: "Bagel Fat One", "Figtree", sans-serif; font-weight: 400; line-height: 1.05; margin: 0; }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--sol); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.25rem; }
+
+  /* Top bar */
+  .topbar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 1.25rem; max-width: 1080px; margin: 0 auto;
+  }
+  .brand { font-family: "Bagel Fat One", sans-serif; font-size: 1.35rem; text-decoration: none; color: var(--azul); }
+  .lang {
+    display: inline-flex; border: 2px solid var(--azul); border-radius: 999px; overflow: hidden;
+  }
+  .lang button {
+    font: 700 0.9rem "Figtree", sans-serif; padding: 0.35rem 0.85rem; border: 0; cursor: pointer;
+    background: transparent; color: var(--azul);
+  }
+  .lang button[aria-pressed="true"] { background: var(--azul); color: var(--bg); }
+
+  /* Papel picado */
+  .picado { display: block; width: 100%; height: 120px; overflow: visible; }
+  .picado .flag { transform-origin: top center; animation: drop 0.7s cubic-bezier(.3,1.5,.5,1) both; }
+  @keyframes drop { from { transform: translateY(-110px) rotate(-8deg); opacity: 0; } to { transform: none; opacity: 1; } }
+
+  /* Hero */
+  .hero { text-align: center; padding: 1rem 0 4rem; }
+  .hero h1 {
+    font-size: clamp(3rem, 11vw, 7.5rem);
+    color: var(--azul);
+    letter-spacing: -0.01em;
+  }
+  .hero h1 span { display: block; font-size: 0.42em; color: var(--rosa); margin-bottom: 0.15em; }
+  .hero p.lead { font-size: 1.3rem; color: var(--ink-soft); max-width: 34ch; margin: 1.25rem auto 2rem; }
+  .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
+  .btn {
+    display: inline-block; text-decoration: none; font-weight: 700; font-size: 1.05rem;
+    padding: 0.9rem 1.6rem; border-radius: 999px; border: 3px solid var(--azul);
+  }
+  .btn-main { background: var(--rosa); border-color: var(--rosa); color: #fff; }
+  .btn-alt { color: var(--azul); }
+  .address-line { margin-top: 1.5rem; font-weight: 500; color: var(--ink-soft); }
+
+  /* Sections */
+  section { padding: 4.5rem 0; }
+  section.alt { background: var(--bg-alt); }
+  h2 { font-size: clamp(2rem, 5vw, 3rem); color: var(--azul); margin-bottom: 1.75rem; }
+
+  .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2.5rem 2rem; }
+  .service { border-top: 6px solid var(--c); padding-top: 1rem; }
+  .service h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+  .service p { margin: 0; color: var(--ink-soft); max-width: 38ch; }
+
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+  @media (max-width: 760px) { .split { grid-template-columns: 1fr; } }
+
+  table { width: 100%; border-collapse: collapse; font-size: 1.05rem; }
+  td { padding: 0.7rem 0; border-bottom: 2px dotted var(--line); }
+  td:last-child { text-align: right; font-weight: 700; }
+  .note { font-size: 0.95rem; color: var(--ink-soft); margin-top: 1rem; }
+
+  .map {
+    width: 100%; aspect-ratio: 4 / 3; border: 0; border-radius: 18px;
+    box-shadow: 8px 8px 0 var(--sol);
+  }
+  .visit p { margin: 0 0 1rem; }
+  .visit strong { font-size: 1.2rem; }
+
+  footer { background: var(--azul); color: #fff; padding: 2.5rem 0; text-align: center; }
+  @media (prefers-color-scheme: dark) { footer { background: #0A1024; } }
+  footer p { margin: 0.3rem 0; }
+  footer .brand { color: #fff; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .picado .flag { animation: none; }
+  }
+
+  /* Language visibility */
+  [data-lang="es"] .en, [data-lang="en"] .es { display: none; }
+</style>
+</head>
+<body data-lang="en">
+
+<header class="topbar">
+  <a class="brand" href="#">BR Fiesta</a>
+  <div class="lang" role="group" aria-label="Language / Idioma">
+    <button type="button" data-set="es" aria-pressed="false">Español</button>
+    <button type="button" data-set="en" aria-pressed="true">English</button>
+  </div>
+</header>
+
+<svg class="picado" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true" id="picado"></svg>
+
+<main>
+  <div class="hero wrap">
+    <h1><span>BR Fiesta</span>Lavandería</h1>
+    <p class="lead">
+      <span class="es">Lava, seca y dobla en un lugar limpio, seguro y lleno de color en Pacoima.</span>
+      <span class="en">Wash, dry and fold in a clean, safe, colorful place right here in Pacoima.</span>
+    </p>
+    <div class="actions">
+      <a class="btn btn-main" href="https://www.google.com/maps/dir/?api=1&destination=13736+Van+Nuys+Blvd,+Pacoima,+CA+91331" target="_blank" rel="noopener">
+        <span class="es">Cómo llegar</span><span class="en">Get directions</span>
+      </a>
+    </div>
+    <p class="address-line">13736 Van Nuys Blvd, Pacoima, CA 91331</p>
+  </div>
+
+  <section class="alt" id="services">
+    <div class="wrap">
+      <h2><span class="es">Servicios</span><span class="en">Services</span></h2>
+      <div class="services">
+        <div class="service" style="--c: var(--rosa)">
+          <h3><span class="es">Autoservicio</span><span class="en">Self-service</span></h3>
+          <p><span class="es">Lavadoras de todos tamaños y secadoras potentes. Llega cuando quieras y lava a tu ritmo.</span><span class="en">Washers in every size and powerful dryers. Come in anytime and do laundry your way.</span></p>
+        </div>
+        <div class="service" style="--c: var(--turquesa)">
+          <h3><span class="es">Lavado y doblado</span><span class="en">Wash &amp; fold</span></h3>
+          <p><span class="es">Déjanos tu ropa y la recoges limpia, seca y doblada. Cobramos por libra.</span><span class="en">Drop off your clothes and pick them up clean, dry and folded. Priced by the pound.</span></p>
+        </div>
+        <div class="service" style="--c: var(--sol)">
+          <h3><span class="es">Piezas grandes</span><span class="en">Big items</span></h3>
+          <p><span class="es">Cobijas, edredones, cortinas y ropa de cama en nuestras lavadoras extra grandes.</span><span class="en">Blankets, comforters, curtains and bedding in our extra-large washers.</span></p>
+        </div>
+        <div class="service" style="--c: var(--naranja)">
+          <h3><span class="es">Comodidades</span><span class="en">Amenities</span></h3>
+          <p><span class="es">Máquina de cambio, jabón a la venta, mesas para doblar y Wi-Fi gratis.</span><span class="en">Change machine, detergent for sale, folding tables and free Wi-Fi.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="hours">
+    <div class="wrap split">
+      <div>
+        <h2><span class="es">Horario</span><span class="en">Hours</span></h2>
+        <p><span class="es">Horario próximamente. ¡Pasa a visitarnos!</span><span class="en">Hours coming soon. Stop by and see us!</span></p>
+      </div>
+      <div>
+        <h2><span class="es">Precios</span><span class="en">Prices</span></h2>
+        <table>
+          <tr><td><span class="es">Lavadora chica (20 lb)</span><span class="en">Small washer (20 lb)</span></td><td>$3.50</td></tr>
+          <tr><td><span class="es">Lavadora grande (40 lb)</span><span class="en">Large washer (40 lb)</span></td><td>$5.50</td></tr>
+          <tr><td><span class="es">Lavadora extra grande (60 lb)</span><span class="en">Extra-large washer (60 lb)</span></td><td>$7.50</td></tr>
+          <tr><td><span class="es">Secadora</span><span class="en">Dryer</span></td><td><span class="es">$0.25 / 7 min</span><span class="en">$0.25 / 7 min</span></td></tr>
+          <tr><td><span class="es">Lavado y doblado</span><span class="en">Wash &amp; fold</span></td><td><span class="es">$1.45 / libra</span><span class="en">$1.45 / lb</span></td></tr>
+        </table>
+        <p class="note"><span class="es">Cobijas y edredones para lavado y doblado: pregunta por el precio.</span><span class="en">Comforters and blankets for wash &amp; fold: ask for pricing.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="visit">
+    <div class="wrap split">
+      <div class="visit">
+        <h2><span class="es">Visítanos</span><span class="en">Visit us</span></h2>
+        <p><strong>13736 Van Nuys Blvd<br>Pacoima, CA 91331</strong></p>
+        <p><span class="es">Estacionamiento disponible. Se habla español e inglés.</span><span class="en">Parking available. We speak Spanish and English.</span></p>
+        <a class="btn btn-main" href="https://www.google.com/maps/dir/?api=1&destination=13736+Van+Nuys+Blvd,+Pacoima,+CA+91331" target="_blank" rel="noopener">
+          <span class="es">Cómo llegar</span><span class="en">Get directions</span>
+        </a>
+      </div>
+      <iframe class="map" title="Map: 13736 Van Nuys Blvd, Pacoima" loading="lazy"
+        src="https://maps.google.com/maps?q=13736+Van+Nuys+Blvd,+Pacoima,+CA+91331&z=16&output=embed"></iframe>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="brand">BR Fiesta Lavandería</p>
+    <p>13736 Van Nuys Blvd, Pacoima, CA 91331</p>
+    <p>&copy; <span id="yr"></span> BR Fiesta Lavandería</p>
+  </div>
+</footer>
+
+<script>
+  // Papel picado banner
+  (function () {
+    const svg = document.getElementById('picado');
+    const ns = 'http://www.w3.org/2000/svg';
+    const colors = ['#E5397A', '#F6B81A', '#12A19E', '#F26B21', '#1B3A8C', '#8E44C9'];
+    const count = 12, w = 1000 / count, fw = w * 0.82;
+    const line = document.createElementNS(ns, 'path');
+    line.setAttribute('d', 'M0 8 Q500 30 1000 8');
+    line.setAttribute('stroke', 'currentColor'); line.setAttribute('fill', 'none');
+    line.setAttribute('stroke-width', '2'); line.style.color = 'var(--ink-soft)';
+    svg.appendChild(line);
+    for (let i = 0; i < count; i++) {
+      const x = i * w + (w - fw) / 2;
+      const t = (x + fw / 2) / 1000;
+      const y = 8 + 4 * 22 * t * (1 - t);   // follows the string's curve
+      const g = document.createElementNS(ns, 'g');
+      g.setAttribute('class', 'flag');
+      g.style.animationDelay = (i * 0.06) + 's';
+      // flag outline with zig-zag bottom
+      const h = 92, teeth = 6, tw = fw / teeth;
+      let d = `M${x} ${y} H${x + fw} V${y + h}`;
+      for (let k = teeth; k > 0; k--) d += ` L${x + (k - 0.5) * tw} ${y + h - 10} L${x + (k - 1) * tw} ${y + h}`;
+      d += ' Z';
+      // cut-outs (evenodd): diamonds and dots
+      const cx = x + fw / 2, cy = y + 42;
+      d += ` M${cx} ${cy - 18} L${cx + 14} ${cy} L${cx} ${cy + 18} L${cx - 14} ${cy} Z`;
+      [[-26, -22], [26, -22], [-26, 22], [26, 22]].forEach(([dx, dy]) => {
+        const r = 5, px = cx + dx, py = cy + dy;
+        d += ` M${px - r} ${py} a${r} ${r} 0 1 0 ${2 * r} 0 a${r} ${r} 0 1 0 ${-2 * r} 0`;
+      });
+      d += ` M${x + 8} ${y + 72} H${x + fw - 8} V${y + 76} H${x + 8} Z`;
+      const p = document.createElementNS(ns, 'path');
+      p.setAttribute('d', d); p.setAttribute('fill', colors[i % colors.length]);
+      p.setAttribute('fill-rule', 'evenodd');
+      g.appendChild(p);
+      svg.appendChild(g);
+    }
+  })();
+
+  // Language toggle
+  document.querySelectorAll('.lang button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = btn.dataset.set;
+      document.body.dataset.lang = lang;
+      document.documentElement.lang = lang;
+      document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', b === btn));
+    });
+  });
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
